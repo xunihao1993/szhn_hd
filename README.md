@@ -46,7 +46,7 @@ react
 
 #### 部署步骤
 1. 创建mysql数据库，数据库名称为：library_manager，运行sql文件（根目录下library_manager.sql）初始化数据库 （配置文件user:root password:123456）
-2. 使用git命令拉取本项目: git clone https://gitee.com/feixiangyunxiao/library_manager.git
+2. 使用git命令拉取本项目: git clone https://github.com/xunihao1993/szhn_hd.git
 3. 使用maven命令进行打包操作:  mvn clean package 
 4. 打包完成之后进入: starter_server/target文件夹中，可看到starter_server*.jar包文件
 5. 使用命令进行启动: nohup java -jar starter_server-01301616.jar(jar包名称，根据实际改动) --spring.profiles.active=prod > libraryManager.log &
