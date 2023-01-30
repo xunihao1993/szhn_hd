@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caitb.library_manager.base.mapper.LibraryBookBorrowLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.caitb.library_manager.base.domain.LibraryBookBorrowLog">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="BOOLEAN"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="bookId" column="book_id" jdbcType="BIGINT"/>
+            <result property="typeFlag" column="type_flag" jdbcType="VARCHAR"/>
+            <result property="bookInfo" column="book_info" jdbcType="OTHER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_time,is_delete,
+        user_id,book_id,type_flag,
+        book_info
+    </sql>
+
+    <select id="getBorrowLogs" resultType="com.caitb.library_manager.vo.LibraryBookBorrowLogVo">
+       	SELECT borrow_log.*, sys_user.username user_name FROM library_book_borrow_log borrow_log
+        LEFT JOIN sys_user
+        ON borrow_log.user_id = sys_user.id
+        WHERE borrow_log.book_id = #{id}
+        ORDER BY borrow_log.id DESC
+    </select>
+</mapper>

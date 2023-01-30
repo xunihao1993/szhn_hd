@@ -1,0 +1,13 @@
+spring:
+  # 数据库配置
+  datasource:
+    username: root
+    password: ajielxj
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://lxjhua.top:3306/library_manager?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&useSSL=false&serverTimezone=Asia/Shanghai
+
+  # redis配置
+  redis:
+    host: lxjhua.top
+    password: ajielxjredis6
+    port: 6379

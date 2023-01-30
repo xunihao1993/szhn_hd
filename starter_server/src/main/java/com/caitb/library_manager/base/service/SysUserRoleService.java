@@ -1,0 +1,11 @@
+package com.caitb.library_manager.base.service;
+
+import com.caitb.library_manager.base.domain.SysUserRole;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ *
+ */
+public interface SysUserRoleService extends IService<SysUserRole> {
+
+}

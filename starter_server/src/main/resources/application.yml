@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+
+# mybatis的配置
+mybatis-plus:
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+spring:
+  profiles:
+    active: prod
+
+
+security:
+  oauth2:
+    resource:
+      id: admin

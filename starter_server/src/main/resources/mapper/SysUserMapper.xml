@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caitb.library_manager.base.mapper.SysUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.caitb.library_manager.base.domain.SysUser">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="BOOLEAN"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="realName" column="real_name" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="BOOLEAN"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="country" column="country" jdbcType="VARCHAR"/>
+            <result property="province" column="province" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="town" column="town" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="state" column="state" jdbcType="BOOLEAN"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_time,is_delete,
+        update_time,username,password,
+        nick_name,real_name,sex,
+        avatar,country,province,
+        city,town,address,
+        state
+    </sql>
+
+    <select id="getUserPermission" resultType="com.caitb.library_manager.base.domain.SysMenu">
+        SELECT sys_menu.`code` FROM sys_role_menu
+        LEFT JOIN sys_menu
+        ON sys_role_menu.menu_id = sys_menu.id
+        LEFT JOIN sys_role
+        ON sys_role.id = sys_role_menu.role_id
+        WHERE sys_role.is_delete = 0
+        AND sys_menu.is_delete = 0
+        AND sys_role.id IN
+        <foreach collection="roleIds" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        GROUP BY sys_menu.id
+    </select>
+</mapper>
