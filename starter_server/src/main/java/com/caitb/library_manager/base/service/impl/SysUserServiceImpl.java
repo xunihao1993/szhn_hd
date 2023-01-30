@@ -122,6 +122,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
     @Override
     public int deleteMiddleData(Long id) {
 
+        // delete from sys_user_role where user_id = 1
         int delete = sysUserRoleMapper.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, id));
         return delete;
     }

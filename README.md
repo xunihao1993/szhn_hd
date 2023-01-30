@@ -25,6 +25,7 @@
 所用框架
 ------
 ### 前端
+react
     
 
 ### 后端
@@ -44,7 +45,7 @@
 3. git
 
 #### 部署步骤
-1. 创建mysql数据库，数据库名称为：library_manager，运行sql文件初始化数据库
+1. 创建mysql数据库，数据库名称为：library_manager，运行sql文件（根目录下library_manager.sql）初始化数据库 （配置文件user:root password:123456）
 2. 使用git命令拉取本项目: git clone https://gitee.com/feixiangyunxiao/library_manager.git
 3. 使用maven命令进行打包操作:  mvn clean package 
 4. 打包完成之后进入: starter_server/target文件夹中，可看到starter_server*.jar包文件

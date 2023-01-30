@@ -12,7 +12,7 @@ mybatis-plus:
       id-type: auto
 spring:
   profiles:
-    active: prod
+    active: dev
 
 
 security:
